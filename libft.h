@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:12:58 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/03 23:49:09 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:55:22 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
+int   ft_isascii(int c);
 size_t		ft_strlen(const char *str);
 void	ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
