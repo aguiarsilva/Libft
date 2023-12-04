@@ -6,7 +6,7 @@
 #    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/12/04 10:32:08 by baguiar-         ###   ########.fr        #
+#    Updated: 2023/12/04 10:57:31 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME := libft.a
 CC := cc
 
 CCFLAGS := -Wextra -Wall -Werror
+
+INCLUDE := libft.h
 
 SOURCES = ft_isalpha.c \
 		  ft_isdigit.c \
