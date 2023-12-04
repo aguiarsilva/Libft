@@ -6,7 +6,7 @@
 #    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/12/04 14:56:45 by baguiar-         ###   ########.fr        #
+#    Updated: 2023/12/04 15:27:25 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME := libft.a
 
 CC := cc
 
-CCFLAGS := -Wextra -Wall -Werror
+CCFLAGS := -Wextra -Wall -Werror -I.
 
 SOURCES = ft_isalpha.c \
 		  ft_isdigit.c \
@@ -49,7 +49,7 @@ SOURCES = ft_isalpha.c \
 		  ft_putchar_fd.c \
 		  ft_putstr_fd.c \
 		  ft_putendl_fd.c \
-		  ft_putnbr_fd.c
+		  ft_putnbr_fd.c \
 
 BONUS_SRC = ft_lstnew_bonus.c \
 						ft_lstadd_front_bonus.c \
@@ -59,11 +59,8 @@ BONUS_SRC = ft_lstnew_bonus.c \
 						ft_lstdelone_bonus.c \
 
 
-OBJ := $(SOURCES:.c=.o)
-BONUS_OBJ := $(BONUS_SRC:.c=.o)
-
-INC_DIR = .
-CPPFLAGS = -I$(INC_DIR)
+OBJ := $(SOURCES:%.c=%.o)
+BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
 
 RM = rm -f
 
@@ -79,7 +76,7 @@ $(NAME) : $(OBJ)
 	$(RANNAME)
 
 %.o: %.c
-	$(CC) $(CPPFLAGS) $(CCFLAGS) -o $@ -c $<
+	$(CC) $(CCFLAGS) -o $@ -c $<
 
 clean:
 	$(RM) $(OBJS_MABO)
@@ -92,7 +89,5 @@ re: fclean all
 bonus: $(OBJS_MABO)
 	$(ARNAME) $(OBJS_MABO)
 	$(RANNAME)
-
-INCLUDES = -I includes
 
 .PHONY: clean bonus re fclean all
