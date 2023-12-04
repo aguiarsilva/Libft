@@ -6,15 +6,15 @@
 #    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/11/29 14:41:13 by baguiar-         ###   ########.fr        #
+#    Updated: 2023/12/04 01:19:01 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a 
+NAME := libft.a 
 
-CC = gcc
+CC := cc
 
-CCFLAGS = -Wextra -Wall -Werror
+CCFLAGS := -Wextra -Wall -Werror
 
 SOURCES = ft_isalpha.c \
 		  ft_isdigit.c \
@@ -51,7 +51,7 @@ SOURCES = ft_isalpha.c \
 		  ft_putendl_fd.c \
 		  ft_putnbr_fd.c
 
-BONUS_SRC = 
+BONUS_SRC = ft_lstnew_bonus.c \
 
 OBJ := $(SOURCES:%.c=%.o)
 BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
