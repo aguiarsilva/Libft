@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:12:58 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 10:03:21 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:33:58 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ t_list  *ft_lstnew(void *content);
 void    ft_lstadd_front(t_list **lst, t_list *new);
 int     ft_lstsize(t_list *lst);
 t_list  *ft_lstlast(t_list *lst);
+void    ft_lstadd_back(t_list **lst, t_list *new);
+void    ft_lstdelone(t_list *lst, void (*del)(void *));
 
 #endif
