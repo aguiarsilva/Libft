@@ -6,7 +6,7 @@
 #    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/12/04 14:53:28 by baguiar-         ###   ########.fr        #
+#    Updated: 2023/12/04 14:56:45 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,8 +59,8 @@ BONUS_SRC = ft_lstnew_bonus.c \
 						ft_lstdelone_bonus.c \
 
 
-OBJ := $(SOURCES:%.c=%.o)
-BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
+OBJ := $(SOURCES:.c=.o)
+BONUS_OBJ := $(BONUS_SRC:.c=.o)
 
 INC_DIR = .
 CPPFLAGS = -I$(INC_DIR)
