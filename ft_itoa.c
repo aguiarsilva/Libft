@@ -6,28 +6,23 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:15:03 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/03 23:47:03 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:23:31 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int  ft_numlen(long n)
+static size_t ft_numlen(long n)
 {
-  int i;
+        size_t  i;
 
-  i = 1;
-  if(n < 0)
-  {
-    n *= -1;
-    i++;
-  }
-  while(n > 9)
-  {
-    n /= 10;
-    i++;
-  }
-  return (i);
+        i = 0;
+        while(n)
+        {
+            n /= 10;
+            i++;
+        }
+        return (i);
 }
 
 char  *ft_itoa(int n)
