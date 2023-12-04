@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 23:12:54 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 00:15:00 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:40:40 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s, 1);
-		i++;
-	}
-	write(fd, "\n", 1);
+	if (s != NULL)
+  {
+    ft_putstr_fd(s, fd);
+    ft_putchar_fd('\n', fd);
+  }
 }

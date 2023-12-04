@@ -6,7 +6,7 @@
 #    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/12/04 15:27:25 by baguiar-         ###   ########.fr        #
+#    Updated: 2023/12/04 17:59:02 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,9 @@ BONUS_SRC = ft_lstnew_bonus.c \
 						ft_lstlast_bonus.c \
 						ft_lstadd_back_bonus.c \
 						ft_lstdelone_bonus.c \
-
+						ft_lstclear_bonus.c \
+						ft_lstiter_bonus.c \
+						ft_lstmap_bonus.c \
 
 OBJ := $(SOURCES:%.c=%.o)
 BONUS_OBJ := $(BONUS_SRC:%.c=%.o)

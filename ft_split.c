@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:19:48 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/03 01:34:14 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:35:37 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ char	**ft_split(const char *s, char c)
   size_t  j;
   int  idx;
 
-  newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
-  if(!s || !newstr)
+ *newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+  if(!s || !*newstr)
     return (0);
   i = 0;
   j = 0;
