@@ -6,7 +6,7 @@
 #    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/12/04 01:19:01 by baguiar-         ###   ########.fr        #
+#    Updated: 2023/12/04 10:14:23 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,9 @@ SOURCES = ft_isalpha.c \
 		  ft_putnbr_fd.c
 
 BONUS_SRC = ft_lstnew_bonus.c \
+						ft_lstadd_front_bonus.c \
+						ft_lstsize_bonus.c \
+						ft_lstlast_bonus.c \
 
 OBJ := $(SOURCES:%.c=%.o)
 BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
