@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:20:48 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 12:53:17 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:56:33 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void  ft_lstadd_back(t_list **lst, t_list *new)
 {
-  t_list  last;
+  t_list  *last;
 
   last = ft_lstlast(*lst);
   if(!new)
