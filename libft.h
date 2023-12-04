@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:12:58 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 00:55:22 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/04 01:14:17 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
+# include <string.h>
 # include <stdlib.h>
 
 int		ft_isalpha(int c);
@@ -51,5 +52,13 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+typedef struct s_list
+{
+  void          *content;
+  struct s_list *next;
+}       t_list;
+
+t_list  *ft_lstnew(void *content);
 
 #endif
