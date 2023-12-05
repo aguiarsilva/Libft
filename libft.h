@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:12:58 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 17:58:28 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:58:38 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
-int   ft_isascii(int c);
-size_t		ft_strlen(const char *str);
+int     ft_isascii(int c);
+size_t  ft_strlen(const char *str);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -55,8 +55,8 @@ void	ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list
 {
-  void          *content;
-  struct s_list *next;
+        void            *content;
+        struct s_list   *next;
 }       t_list;
 
 t_list  *ft_lstnew(void *content);
