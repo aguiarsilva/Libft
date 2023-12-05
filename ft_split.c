@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:19:48 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/05 12:06:49 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:36:21 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	**ft_split(const char *s, char c)
   while (i <= ft_strlen(s))
   {
     if (s[i] != c && idx < 0)
-      idx = 1;
+      idx = i;
     else if ((s[i] == c || i == ft_strlen(s)) && idx >= 0)
     {
       newstr[j++] = cp_word(s, idx, i);
