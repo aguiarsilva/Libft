@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:18:28 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 14:26:44 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 13:36:07 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*ptr;
+  void  *ptr;
 
 	ptr = (void*)malloc(nmemb * size);
 	if (!ptr)
 		  return (NULL);
-	ft_bzero(ptr, nmemb);
+	ft_bzero(ptr, (nmemb * size));
 	return (ptr);
 }
