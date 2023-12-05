@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:19:48 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 16:35:37 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:18:08 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ static char	*cp_word(const char *str, int beg, int end)
 
 char	**ft_split(const char *s, char c)
 {
-  char  **newstr;
+  char    **newstr;
   size_t  i;
   size_t  j;
   int  idx;
-
- *newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
-  if(!s || !*newstr)
+  
+  newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+  if(!s || !(newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *))));
     return (0);
   i = 0;
   j = 0;
@@ -63,9 +63,7 @@ char	**ft_split(const char *s, char c)
   while (i <= ft_strlen(s))
   {
     if (s[i] != c && idx < 0)
-    {
       idx = 1;
-    }
     else if ((s[i] == c || i == ft_strlen(s)) && idx >= 0)
     {
       newstr[j++] = cp_word(s, idx, i);
