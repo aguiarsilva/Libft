@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:15:03 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 18:23:31 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:37:42 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ char  *ft_itoa(int n)
   num = num > 0 ? num : -num;
   sinal = n > 0 ? 1 : 0;
   numlen += ft_numlen(n);
-  str = (char *)malloc(sizeof(char) * (numlen + 1));
-  if(!str)
+  if(!(str = (char *)malloc(sizeof(char) * (numlen + 1))));
     return (0);
   *(str + numlen--) = '\0';
   while (num > 0)
@@ -47,12 +46,8 @@ char  *ft_itoa(int n)
     num /= 10;
   }
   if (numlen == 0 && str[1] == '\0')
-  {
     *(str + numlen) = '0';
-  } 
   else if (numlen == 0 && sinal == 0)
-  {
     *(str + numlen) = '-';
-  }
   return (str);
 }
