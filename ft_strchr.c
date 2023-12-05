@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:42:31 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:38:51 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:47:10 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	      while (*s != '\0' && c != *s)
+	      while ((char)c != *s)
+        {
+            if (!*s)
+                return (NULL);
             s++;
-	  	  if (c == *s)
-		  	    return ((char *)s);
-	      return (0);
+        }
+		  	return ((char *)s);
 }

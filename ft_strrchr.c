@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 19:47:12 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/04 16:17:04 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:57:40 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ char	*ft_strrchr(const char *s, int c)
     ptr = s;
     i = ft_strlen(s);
     s = (s + i);
-    while (*s != *ptr && c != *s)
+    while (i > 0 && *ptr != c)
     {
-      s--;
+      ptr--;
+      i--;
     }
-    if (c == *s)
-		  return ((char *)s);
+    if (*ptr == c)
+		  return ((char *)ptr);
     return (0);
 }
