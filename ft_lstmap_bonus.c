@@ -6,7 +6,7 @@
 /*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:32:02 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/05 14:35:49 by baguiar-         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:36:54 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		nnode = ft_lstnew(f(lst->content));
 		if (!(nnode))
 		{
-			ft_lstclear(&nlist, (*del));
+      while (nlist)
+      {
+        nnode = nlist->next;
+        (*del)(nlist->content);
+        free(nlist);
+        nlist = nnode;
+      }
+			nlist = NULL;
 			return (NULL);
 		}
 		ft_lstadd_back(&nlist, nnode);
