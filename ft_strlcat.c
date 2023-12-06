@@ -24,5 +24,5 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 		++i;
 	}
 	r = ft_strlcpy(dest, src, n - i);
-		return (r + i);
+	return (r + i);
 }

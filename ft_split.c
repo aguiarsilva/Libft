@@ -15,7 +15,7 @@
 static int	ft_word_count(const char *s, char c)
 {
 	int	i;
-	int	fword;	
+	int	fword;
 
 	fword = 0;
 	i = 0;
@@ -39,37 +39,37 @@ static char	*cp_word(const char *str, int beg, int end)
 	int		i;
 
 	i = 0;
-	mot = malloc((end - beg)* sizeof(char));
+	mot = (char *)malloc((end - beg) * sizeof(char));
 	while (beg < end)
 		mot[i++] = str[beg++];
 	mot[i] = '\0';
 	return (mot);
 }
 
-
 char	**ft_split(const char *s, char c)
 {
-  char    **newstr;
-  size_t  i;
-  size_t  j;
-  int  idx;
-  
-  if(!s || !(newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *))))
-    return (0);
-  i = 0;
-  j = 0;
-  idx = -1;
-  while (i <= ft_strlen(s))
-  {
-    if (s[i] != c && idx < 0)
-      idx = i;
-    else if ((s[i] == c || i == ft_strlen(s)) && idx >= 0)
-    {
-      newstr[j++] = cp_word(s, idx, i);
-      idx = -1;
-    }
-    i++;
-  }
-  newstr[j] = 0;
-  return (newstr);
+	char	**newstr;
+	size_t	i;
+	size_t	j;
+	int		idx;
+
+	newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
+	if (!s || !newstr)
+		return (0);
+	i = 0;
+	j = 0;
+	idx = -1;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && idx < 0)
+			idx = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && idx >= 0)
+		{
+			newstr[j++] = cp_word(s, idx, i);
+			idx = -1;
+		}
+		i++;
+	}
+	newstr[j] = 0;
+	return (newstr);
 }
