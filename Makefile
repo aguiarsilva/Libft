@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+         #
+#    By: baguiar- <baguiar-@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 11:53:45 by baguiar-          #+#    #+#              #
-#    Updated: 2023/12/04 17:59:02 by baguiar-         ###   ########.fr        #
+#    Updated: 2024/03/21 21:55:24 by baguiar-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,37 +75,35 @@ FTPRINTF_DIR = 	$(SRC_DIR)ft_printf/ft_printf_cases.c \
 				$(SRC_DIR)ft_printf/ft_printf_x.c \
 				$(SRC_DIR)ft_printf/ft_printf.c \
 
-GETNEXTLINE_DIR = $(SRC_DIR)get_next_line/get_next_line_utils.c \
-				  $(SRC_DIR)get_next_line/get_next_line.c \	  
+GNL_DIR = $(SRC_DIR)gnl/get_next_line_utils.c \
+		  $(SRC_DIR)gnl/get_next_line.c \	  
 
-OBJ := $(SOURCES:%.c=%.o)
+SRC	= $(FTIS_DIR) $(FTMEM_DIR) $(FTPUT_DIR) $(FTTO_DIR) $(FTSTR_DIR) $(FTLST_DIR) $(FTPRINTF_DIR) $(GNL_DIR)
+
+OBJ := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 
 RM = rm -f
 
 ARNAME = ar rcs $(NAME)
 RANNAME = ranlib $(NAME)
 
-OBJS_MABO = $(OBJ) $(BONUS_OBJ)
-
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	$(ARNAME) $(OBJ)
-	$(RANNAME)
+	@$(ARNAME) $(OBJ)
+	@$(RANNAME)
 
-%.o: %.c
-	$(CC) $(CCFLAGS) -o $@ -c $<
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(@D)
+	@$(CC) $(CCFLAGS) $(INC) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJS_MABO)
+	@$(RM) -r $(OBJ_DIR)
+	@$(RM) .cache_exists
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
-
-bonus: $(OBJS_MABO)
-	$(ARNAME) $(OBJS_MABO)
-	$(RANNAME)
 
 .PHONY: clean bonus re fclean all
