@@ -12,64 +12,93 @@
 
 #include "libft.h"
 
-static int	ft_word_count(const char *s, char c)
+static char	**ft_free(char **ptr, int i)
+{
+	while (i > 0)
+	{
+		i--;
+		free(ptr[i]);
+	}
+	free(ptr);
+	return (0);
+}
+
+static int	ft_word_count(char const *str, char c)
 {
 	int	i;
-	int	fword;
+	int	count;
 
-	fword = 0;
 	i = 0;
-	while (*s)
+	count = 0;
+	while (str[i] != '\0')
 	{
-		if (*s != c && fword == 0)
-		{
-			fword = 1;
+		if (str[i] == c)
 			i++;
-		}
-		else if (*s == c)
-			fword = 0;
-		s++;
-	}
-	return (i);
-}
-
-static char	*cp_word(const char *str, int beg, int end)
-{
-	char	*mot;
-	int		i;
-
-	i = 0;
-	mot = (char *)malloc((end - beg) * sizeof(char));
-	while (beg < end)
-		mot[i++] = str[beg++];
-	mot[i] = '\0';
-	return (mot);
-}
-
-char	**ft_split(const char *s, char c)
-{
-	char	**newstr;
-	size_t	i;
-	size_t	j;
-	int		idx;
-
-	newstr = malloc((ft_word_count(s, c) + 1) * sizeof(char *));
-	if (!s || !newstr)
-		return (0);
-	i = 0;
-	j = 0;
-	idx = -1;
-	while (i <= ft_strlen(s))
-	{
-		if (s[i] != c && idx < 0)
-			idx = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && idx >= 0)
+		else
 		{
-			newstr[j++] = cp_word(s, idx, i);
-			idx = -1;
+			count++;
+			while (str[i] && str[i] != c)
+				i++;
 		}
-		i++;
 	}
-	newstr[j] = 0;
-	return (newstr);
+	return (count);
+}
+
+static char	*cp_words(char *word, char const *s, int i, int len)
+{
+	int	j;
+
+	j = 0;
+	while (len > 0)
+	{
+		word[j] = s[i - len];
+		j++;
+		len--;
+	}
+	word[j] = '\0';
+	return (word);
+}
+
+static char	**sp_words(char const *s, char c, char **s2, int nword)
+{
+	int	i;
+	int	word;
+	int	len;
+
+	i = 0;
+	word = 0;
+	len = 0;
+	while (word < nword)
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			len++;
+		}
+		s2[word] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!s2[word])
+			return (ft_free(s2, word));
+		cp_words(s2[word], s, i, len);
+		len = 0;
+		word++;
+	}
+	s2[word] = 0;
+	return (s2);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			**s2;
+	unsigned int	nwords;
+
+	if (!s)
+		return (0);
+	nwords = ft_word_count(s, c);
+	s2 = (char **)malloc(sizeof(char *) * (nwords + 1));
+	if (!s2)
+		return (0);
+	s2 = sp_words(s, c, s2, nwords);
+	return (s2);
 }
