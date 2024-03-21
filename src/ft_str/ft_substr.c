@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baguiar- <baguiar-@student.42wolfsburg.de  +#+  +:+       +#+        */
+/*   By: baguiar- <baguiar-@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:37:16 by baguiar-          #+#    #+#             */
-/*   Updated: 2023/12/02 14:29:48 by baguiar-         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:01:03 by baguiar-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../../inc/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
